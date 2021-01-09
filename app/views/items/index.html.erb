@@ -9,17 +9,30 @@
     </tr>
   </thead>
 
-  <tbody>
+  <div class = "items">
     <% @items.each do |item| %>
-      <tr>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to  item do %>
+        <div class = "items__item">
+          <div class = "items__item-column">
+            
+          </div>
+          <div class = "items__item-column">
+            <span class = "items__item-name">
+              <%= item.name %>
+            </span>
+            <span class = "items__item-content">
+              <%= item.content %>
+            </span>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
+  </div>
 </table>
+<%= link_to  new_item_path do%>
+  <div id = "new_item">
+    <i class="fas fa-plus"></i>
+  </div>
+<% end %>
 
 <br>
-
-<%= link_to 'New Item', new_item_path %>

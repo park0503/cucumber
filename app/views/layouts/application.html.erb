@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/4891fd3790.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="/css/items/index.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+
     <style>
-      body {
-      }
-      a:visited {
-        background-color : #38970A;
+      header a {
         color : white;
+        text-decoration : none;
+      }
+      * {
+        box-sizing : border-box;
+      }
+      body {
+        margin : 0;
+      }
+      main {
+        margin : 33px;
       }
       header {
         padding-top : 3px;
@@ -32,11 +42,25 @@
         width:165px;
         height:70px;
       }
+      input[type="submit"] {
+        background-color: #38970A;
+        color : white;
+        font-size: 20px;
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid black;
+      }
     </style>
   </head>
 
   <body>
   <header>
+    <div class = "header-column back_button">
+      <%= link_to :back do %>
+      <i class="fas fa-chevron-left"></i>Back
+      <% end %>
+    </div>
     <div class = "header-column">
       <%= link_to root_path do %>
       <img src="/images/cucumber.jpg" id="logo">
@@ -62,6 +86,29 @@
     </div>
     <% end %>
   </header>
+  <main>
     <%= yield %>
+  </main>
+  <nav class ="nav">
+    <ul class = "nav_list">
+      <%= link_to items_path  do%>
+      <li class="nav_list_item">
+        <i class="fas fa-store"></i>
+      </li>
+      <% end %>
+      <li class="nav_list_item">
+        <i class="fas fa-city"></i>
+      </li>
+      <li class="nav_list_item">
+        <i class="fas fa-map-marker-alt"></i>
+      </li>
+      <li class="nav_list_item">
+        <i class="fas fa-comments"></i>
+      </li>
+      <li class="nav_list_item">
+        <i class="fas fa-user"></i>
+      </li>
+    </ul>
+  </nav>
   </body>
 </html>

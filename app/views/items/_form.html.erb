@@ -16,6 +16,30 @@
       <%= f.label :name %>
       <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
+    <br>
+    <div class="field">
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :quantity %>
+      <%= f.number_field :quantity %>
+    </div>
+    <br>
+    <div>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :image, 'Main Image' %>
+      <%= f.file_field :image %>
+    </div>
+    <br>
+    <div class = "button">
+      <%= f.submit 'Post Items!' %>
+    </div>
   <% end %>
     
 <% end %>
