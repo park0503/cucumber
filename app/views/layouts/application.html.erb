@@ -8,9 +8,60 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      body {
+      }
+      a:visited {
+        background-color : #38970A;
+        color : white;
+      }
+      header {
+        padding-top : 3px;
+        padding-right : 4px;
+        background-color : #38970A;
+        display :flex;
+        justify-content : space-between;
+        align-items : center;
+        color : white;
+      }
+      .header-column {
+        margin-left : 5px;
+        display :flex;
+      }
+      #logo {
+        width:165px;
+        height:70px;
+      }
+    </style>
   </head>
 
   <body>
+  <header>
+    <div class = "header-column">
+      <%= link_to root_path do %>
+      <img src="/images/cucumber.jpg" id="logo">
+      <% end %>
+    </div>
+  <% if user_signed_in? %>
+    <div class = "header-column">
+      <div class = "header-column">
+        <%= current_user.name %>님 어서오고~
+      </div>
+      <div class = "header-column">
+        <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+    <% else %>
+    <div class = "header-column">
+      <div class = "header-column">
+        <%= link_to '회원가입', new_user_registration_path %>
+      </div>
+      <div class = "header-column">
+        <%= link_to '로그인', new_user_session_path%>
+      </div>
+    </div>
+    <% end %>
+  </header>
     <%= yield %>
   </body>
 </html>

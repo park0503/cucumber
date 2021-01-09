@@ -1,0 +1,58 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <br />
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.radio_button :sex,  '1' %>Male
+    <%= f.radio_button :sex,  '2'%>Female
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :birth %>
+    <%= f.select :year, 
+    options_for_select([['1996','1996'],['1997','1997'],['1998','1998']], params[:year]),
+    {} %>년
+  </div>
+  <div class="field">
+    <%= f.select :month, 
+    options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10'],['11','11'],['12','12']], params[:month]),
+    {} %>월
+  </div>
+  <div class="field">
+    <%= f.select :date, 
+    options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6']], params[:date]),
+    {} %>일
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
