@@ -1,0 +1,23 @@
+<h1>MYpage</h1>
+
+<div class = "me">
+    <div class = "me__avatar-frame">
+        <% if @user.avatar.present? %>
+          <%= image_tag @user.avatar.url, :class => "me__avatar" %>
+        <% else %>
+          <%= image_tag "/images/profile.jpg", :class => "me__avatar" %>
+        <% end %>
+        
+    </div>
+    <div class = "me-column">
+        <div class = "me__name">
+            <%= @user.name %>
+        </div>
+        <div class = "me__address">
+            <%= @user.address1 %> #<%= @user.id %>
+        </div>
+    </div>
+</div>
+<%= link_to  edit_user_registration_path(@user), class: "me__edit-button" do %>
+    프로필 수정
+<% end %>

@@ -1,0 +1,28 @@
+.me {
+    display: flex;
+    align-items: center;
+}
+
+.me__avatar {
+    width : 100px;
+    height : 100px;
+    border-radius: 100px;
+    margin-right: 40px;
+}
+.me__name {
+    font-size : 30px;
+    margin-bottom: 10px;
+}
+.me__edit-button {
+    width : 100%;
+    border: 0.3px solid rgb(170, 163, 163);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size : 20px;
+    font-weight: 600;
+    padding : 10px 0px;
+    margin-top : 20px;
+    color : grey;
+}

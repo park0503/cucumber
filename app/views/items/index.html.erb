@@ -2,40 +2,39 @@
 
 <h1>Items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <div class = "items">
-    <% @items.each do |item| %>
-      <%= link_to  item do %>
-        <div class = "items__item">
-          <div class = "items__item-column">
-            <%= image_tag(item.image_url.url, :class => "items__item-image")%>
+
+<div class = "items">
+  <% @items.each do |item| %>
+    <%= link_to  item do %>
+      <div class = "items__item">
+        <div class = "items__item-column">
+          <%= image_tag(item.image_url.url, :class => "items__item-image")%>
+        </div>
+        <div class = "items__item-column">
+          <div class = "items__item-name">
+            <%= item.name %>
           </div>
-          <div class = "items__item-column">
-            <div class = "items__item-name">
-              <%= item.name %>
-            </div>
-            <div class = "items__item-content">
-              <%= item.content %>
-            </div>
-            <div class = "items__item-price">
-              <%= item.price %>원
-            </div>
+          <div class = "items__item-content">
+            <%= item.content %>
+          </div>
+          <div class = "items__item-price">
+            <%= item.price %>원
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
-</table>
-<%= link_to  new_item_path do%>
+  <% end %>
+</div>
+
+<% if current_user.present? %>
+  <%= link_to  new_item_path do%>
   <div id = "post_item">
     <i class="fas fa-plus"></i>
   </div>
+  <% end %>
 <% end %>
+
+
 
 <br>

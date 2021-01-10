@@ -10,11 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="/css/items/index.css" />
     <link rel="stylesheet" href="/css/nav.css" />
-
+    <link rel="stylesheet" href="/css/items/show.css" />
+    <link rel="stylesheet" href="/css/users/mypage.css" />
     <style>
+      a {
+        text-decoration : none;
+      }
       header a {
         color : white;
-        text-decoration : none;
       }
       * {
         box-sizing : border-box;
@@ -105,9 +108,20 @@
       <li class="nav_list_item">
         <i class="fas fa-shopping-cart"></i>
       </li>
-      <li class="nav_list_item">
-        <i class="fas fa-user"></i>
-      </li>
+      <% if current_user.present? %>
+        <%= link_to  users_mypage_path do %>
+          <li class="nav_list_item">
+            <i class="fas fa-user"></i>
+          </li>
+        <% end %>
+      <% else %>
+        <%= link_to  new_user_session_path do %>
+          <li class="nav_list_item">
+            <i class="fas fa-user"></i>
+          </li>
+        <% end %>
+      <% end %>
+      
     </ul>
   </nav>
   </body>
