@@ -3,7 +3,15 @@
 <div class="item-image-frame">
     <%= image_tag @item.image_url.url, :class => "item-image" %>
 </div>
+<%= link_to  @user do %>
 <div class = "item__user">
+    <div class = "item__user__avatar-frame">
+        <% if @user.avatar.present? %>
+          <%= image_tag @user.avatar.url, :class => "item__user__avatar" %>
+        <% else %>
+          <%= image_tag "/images/profile.jpg", :class => "item__user__avatar" %>
+        <% end %>
+    </div>
     <div class = "item__user-column">
         <div class = "item__user-name">
             <%= @item.user.name %>
@@ -13,6 +21,7 @@
         </div>
     </div>
 </div>
+<% end %>
 <div class="item-column">
     <div class = "item__name">
         <%= @item.name %>

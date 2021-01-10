@@ -3,15 +3,29 @@
 }
 
 .item__user {
+    display : flex;
+    align-items: center;
     width : 100%;
     border-bottom: 0.5px solid #38970A;
     padding : 10px 0px;
+}
+
+.item__user__avatar {
+    width:40px;
+    height:40px;
+    border-radius: 40px;
+    margin-right: 10px;
 }
 
 .item-column {
     display:flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.item__user-address {
+    font-size : 10px;
+    color:rgb(177, 165, 165);
 }
 
 .item__name {

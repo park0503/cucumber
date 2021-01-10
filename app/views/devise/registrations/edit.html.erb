@@ -4,8 +4,53 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.radio_button :sex,  '1' %>Male
+    <%= f.radio_button :sex,  '2'%>Female
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :birth %>
+    <%= f.select :year, 
+    options_for_select([['1996','1996'],['1997','1997'],['1998','1998']], params[:year]),
+    {} %>년
+  </div>
+  <div class="field">
+    <%= f.select :month, 
+    options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10'],['11','11'],['12','12']], params[:month]),
+    {} %>월
+  </div>
+  <div class="field">
+    <%= f.select :date, 
+    options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6']], params[:date]),
+    {} %>일
+  </div>
+  <br />
+   <div class="field">
+    <%= f.label :address1, "Address" %>
+    <%= f.text_field :address1 %>
+    <br>
+    <%= f.text_field :address2 %>
+  </div>
+  <br />
+   <div class="field">
+    <%= f.label :phone, "Phone Number"%>
+    <%= f.text_field :phone %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :avatar, 'Avatar' %>
+    <%= f.file_field :avatar %>
+  </div>
+  <br />
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

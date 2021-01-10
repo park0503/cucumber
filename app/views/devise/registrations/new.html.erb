@@ -31,6 +31,23 @@
     {} %>일
   </div>
   <br />
+   <div class="field">
+    <%= f.label :address1, "Address" %>
+    <%= f.text_field :address1 %>
+    <br>
+    <%= f.text_field :address2 %>
+  </div>
+  <br />
+   <div class="field">
+    <%= f.label :phone, "Phone Number"%>
+    <%= f.text_field :phone %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :avatar, 'Avatar' %>
+    <%= f.file_field :avatar %>
+  </div>
+  <br />
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, autocomplete: "email" %>
