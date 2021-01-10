@@ -17,6 +17,32 @@
 
 }
 
+.items a {
+    color : black;
+    text-decoration: none;
+}
+
 .items__item {
     border-bottom: 0.5px solid grey;
+    display : flex;
+    padding: 15px 0px;
+}
+
+.items__item-image {
+    width:100px;
+    height:100px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.items__item-name {
+    font-size : 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.items__item-price {
+    font-size : 15px;
+    font-weight: 600;
+    margin-top:10px;
 }

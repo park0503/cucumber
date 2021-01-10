@@ -14,15 +14,18 @@
       <%= link_to  item do %>
         <div class = "items__item">
           <div class = "items__item-column">
-            
+            <%= image_tag(item.image_url.url, :class => "items__item-image")%>
           </div>
           <div class = "items__item-column">
-            <span class = "items__item-name">
+            <div class = "items__item-name">
               <%= item.name %>
-            </span>
-            <span class = "items__item-content">
+            </div>
+            <div class = "items__item-content">
               <%= item.content %>
-            </span>
+            </div>
+            <div class = "items__item-price">
+              <%= item.price %>원
+            </div>
           </div>
         </div>
       <% end %>
