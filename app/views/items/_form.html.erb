@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
   <%= form_for(@item) do |f| %>
     <div class="field">
       <%= f.label :name %>
@@ -27,19 +28,19 @@
       <%= f.number_field :quantity %>
     </div>
     <br>
-    <div>
+    <div class="field">
       <%= f.label :content %>
       <%= f.text_area :content %>
     </div>
     <br>
     <div class="field">
-      <%= f.label :image, 'Main Image' %>
-      <%= f.file_field :image %>
+      <%= f.label :image_url, 'Image' %>
+      <%= f.file_field :image_url %>
     </div>
     <br>
     <div class = "button">
       <%= f.submit 'Post Items!' %>
     </div>
   <% end %>
-    
+
 <% end %>
