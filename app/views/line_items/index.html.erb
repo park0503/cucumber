@@ -12,6 +12,9 @@
             <% @line_items.each do |line_item| %>
             <% item = line_item.item %>
                 <div class="line_item">
+                    <%= link_to destroy_in_cart_line_item_path(line_item), class: "line_item__delete-button", method: :delete do %>
+                        <i class="fas fa-trash-alt"></i>
+                    <% end %>
                     <%= image_tag item.image_url.url, class: "line_item-image" %>
                     <div class="line_item-column">
                         <div class = "line_item-name">
@@ -22,14 +25,22 @@
                         </div>
                     </div>
                     <div class="line_item-column">
-                        <div class="line_item-quantity">
+                        <div class="line_item-quantity" id="line_item-quantity-<%=line_item.id%>">
                             수량 : <%= line_item.quantity %>개
                         </div>
-                        <div class="line_item-amount">
+                        <div class="line_item-amount" id="line_item-amount-<%=line_item.id%>">
                             <%= item.price * line_item.quantity %>원
                         </div>
                     </div>
                 </div>
+            <% end %>
+        </div>
+        <div class="buy-tab">
+            <div class="buy-tab__amount">
+                <%= @order.amount %>원
+            </div>
+            <%= link_to edit_order_path(@order),class: "buy-tab__buy-button" do %>
+                구매하기
             <% end %>
         </div>
     <% end %>
