@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/nav.css" />
     <link rel="stylesheet" href="/css/items/show.css" />
     <link rel="stylesheet" href="/css/users/mypage.css" />
+    <link rel="stylesheet" href="/css/line_items/index.css" />
     <style>
       a {
         text-decoration : none;
@@ -22,13 +23,21 @@
       * {
         box-sizing : border-box;
       }
-      body {
+      html, body, main {
+        width : 100%;
         margin : 0;
       }
       main {
-        margin : 33px;
+        padding-top: 109.63px;
+        padding-bottom: 60.99px;
+        padding-left:33px;
+        padding-right:33px;
       }
       header {
+        position : fixed;
+        width : 100%;
+        left: 0;
+        top : 0;
         padding-top : 3px;
         padding-right : 4px;
         background-color : #38970A;
@@ -53,6 +62,15 @@
         justify-content: center;
         align-items: center;
         border: 0.5px solid black;
+      }
+
+      .no_element {
+        position: absolute;
+        width: 100%;
+        top :50%;
+        text-align : center;
+        font-size : 50px;
+        color : #2ed573;
       }
     </style>
   </head>
@@ -99,22 +117,39 @@
         <i class="fas fa-store"></i>
       </li>
       <% end %>
-      <li class="nav_list_item">
-        <i class="fas fa-city"></i>
-      </li>
-      <li class="nav_list_item">
-        <i class="fas fa-map-marker-alt"></i>
-      </li>
-      <li class="nav_list_item">
-        <i class="fas fa-shopping-cart"></i>
-      </li>
       <% if current_user.present? %>
+        <li class="nav_list_item">
+          <i class="fas fa-city"></i>
+        </li>
+        <li class="nav_list_item">
+          <i class="fas fa-map-marker-alt"></i>
+        </li>
+        <%= link_to line_items_path do %>
+          <li class="nav_list_item">
+            <i class="fas fa-shopping-cart"></i>
+          </li>
+        <% end %>
         <%= link_to  users_mypage_path do %>
           <li class="nav_list_item">
             <i class="fas fa-user"></i>
           </li>
         <% end %>
       <% else %>
+        <%= link_to  new_user_session_path do %>
+          <li class="nav_list_item">
+            <i class="fas fa-city"></i>
+          </li>
+        <% end %>
+        <%= link_to  new_user_session_path do %>
+          <li class="nav_list_item">
+            <i class="fas fa-map-marker-alt"></i>
+          </li>
+        <% end %>
+        <%= link_to  new_user_session_path do %>
+          <li class="nav_list_item">
+            <i class="fas fa-shopping-cart"></i>
+          </li>
+        <% end %>
         <%= link_to  new_user_session_path do %>
           <li class="nav_list_item">
             <i class="fas fa-user"></i>

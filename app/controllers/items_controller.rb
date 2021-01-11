@@ -5,12 +5,18 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.order(created_at: :desc)
+    if current_user.present? && Order.find_by(user_id:current_user, status:0).blank?
+      order = Order.new(user_id: current_user.id, status: 0, amount: 0)
+      order.save
+    end
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
     @user = @item.user
+    order = Order.find_by(user_id: current_user.id, status: 0)
+    @line_item = LineItem.find_by(order_id: order.id, item_id: params[:id])
   end
 
   # GET /items/new

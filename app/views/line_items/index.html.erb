@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Cart</h1>
+
+
+    <% if @line_items.blank? %>
+        <div class = "no_element">
+            장바구니가 비어있습니다.
+        </div>
+    <% else %>
+        <div class = "line_items">
+            <% @line_items.each do |line_item| %>
+            <% item = line_item.item %>
+                <div class="line_item">
+                    <%= image_tag item.image_url.url, class: "line_item-image" %>
+                    <div class="line_item-column">
+                        <div class = "line_item-name">
+                            <%= item.name %>
+                        </div>
+                        <div class="line_item-content">
+                            <%= item.content %>
+                        </div>
+                    </div>
+                    <div class="line_item-column">
+                        <div class="line_item-quantity">
+                            수량 : <%= line_item.quantity %>개
+                        </div>
+                        <div class="line_item-amount">
+                            <%= item.price * line_item.quantity %>원
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+
+
+
+
+<br>

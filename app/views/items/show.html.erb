@@ -45,8 +45,15 @@
             삭제하기
     <% end %>
 <% elsif current_user.present? %>
-        <div class = "item__cart-button button">
+    <% if @line_item.blank? %>
+        <%= link_to line_items_path(id: @item.id), method: :post, class: "item__cart-button button", id: "buy" do %>    
             장바구니에 담기
-        </div>
+        <% end %>
+    <% else %>
+        <%= link_to line_item_path(@item), method: :delete, class: "item__cart-button button", id: "dontbuy" do %>    
+            장바구니에서 빼기
+        <% end %>
+    <% end %>
+    
 <% end %>
 </div>

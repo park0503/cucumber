@@ -70,8 +70,15 @@
 .item__cart-button {
     width: 80%;
     height : 50px;
-    background-color: rgb(39, 124, 204);
     color : white;
+}
+
+#buy {
+    background-color: rgb(39, 124, 204);
+}
+
+#dontbuy {
+    background-color: rgb(221, 45, 45);
 }
 
 .item__button-tab .button {
