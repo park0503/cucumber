@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :line_items do
     member do
       delete :destroy_in_cart
+      get :change_qty
     end
   end
   resources :orders
