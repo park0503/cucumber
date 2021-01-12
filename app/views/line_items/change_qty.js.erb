@@ -1,0 +1,7 @@
+function changeQty() {
+    $('#line_item-quantity-<%= @line_item&.id %>').html("수량 : <%= @line_item.quantity %>개");
+    $('#line_item-amount-<%= @line_item&.id%>').html("수량 : <%= @line_item.  amount %>개");
+    $('.buy-tab__amount').html("<%= @order.amount   %>원");
+}
+
+changeQty();

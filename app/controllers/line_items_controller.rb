@@ -31,6 +31,20 @@ class LineItemsController < ApplicationController
         redirect_to line_items_path
     end
 
+    def change_qty
+        @line_item = LineItem.find(params[:id])
+        @order = current_user.orders.find_by(status: 0)
+        if @line_item
+            num = (params[:type] == "plus") ? 1 : -1
+            @line_item.update(quantity: @line_item.quantity + num)
+            @line_item.update(amount: @line_item.quantity * @line_item.item.price)
+            @order.update(amount: 0)
+            @order.line_items.each do |snatch|
+                @order.update(amount: @order.amount + snatch.amount)
+            end
+        end
+    end
+
     private
 
     def line_item_params
