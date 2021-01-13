@@ -1,25 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails를 이용해 연습용으로 제작하고 있는 상거래 사이트입니다.
 
 Things you may want to cover:
 
 * Ruby version
 2.7.2
 
-* System dependencies
+* Rails version
+6.1.0
 
-* Configuration
+* jQuery version
+3.5.1
 
-* Database creation
+* Database -> rails 자체 activerecord 이용
 
-* Database initialization
+* 제작 기간 21.01.08 ~
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 개인프로젝트
