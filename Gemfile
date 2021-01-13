@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #custom
 gem 'devise'
 gem 'carrierwave'
+gem 'activeadmin'
+gem 'inherited_resources'
