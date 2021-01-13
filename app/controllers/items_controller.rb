@@ -15,8 +15,10 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @user = @item.user
-    order = Order.find_by(user_id: current_user.id, status: 0)
-    @line_item = LineItem.find_by(order_id: order.id, item_id: params[:id])
+    if current_user.present?
+      order = Order.find_by(user_id: current_user.id, status: 0)
+      @line_item = LineItem.find_by(order_id: order.id, item_id: params[:id])
+    end
   end
 
   # GET /items/new

@@ -24,16 +24,16 @@
                             <%= item.content %>
                         </div>
                     </div>
-                    <div class="line_item-column">
-                        <div class="line_item-quantity" id="line_item-quantity-<%=line_item.id%>">
+                    <div class="line_item-column qty_tab">
                         <%= link_to  change_qty_line_item_path(line_item, type: "minus"), class: "line_item-minus", id: "minus-#{line_item.id}", :remote => true do %>
-                        -
+                            -
                         <% end %>
+                        <div class="line_item-quantity" id="line_item-quantity-<%=line_item.id%>">
                             수량 : <%= line_item.quantity %>개
-                        <%= link_to  change_qty_line_item_path(line_item, type: "plus"), class: "line_item-plus", id: "plus-#{line_item.id}", :remote => true do %>
-                        +
-                        <% end %>
                         </div>
+                        <%= link_to  change_qty_line_item_path(line_item, type: "plus"), class: "line_item-plus", id: "plus-#{line_item.id}", :remote => true do %>
+                            +
+                        <% end %>
                         <div class="line_item-amount" id="line_item-amount-<%=line_item.id%>">
                             <%= item.price * line_item.quantity %>원
                         </div>

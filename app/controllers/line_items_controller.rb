@@ -35,12 +35,20 @@ class LineItemsController < ApplicationController
         @line_item = LineItem.find(params[:id])
         @order = current_user.orders.find_by(status: 0)
         if @line_item
-            num = (params[:type] == "plus") ? 1 : -1
-            @line_item.update(quantity: @line_item.quantity + num)
-            @line_item.update(amount: @line_item.quantity * @line_item.item.price)
-            @order.update(amount: 0)
-            @order.line_items.each do |snatch|
-                @order.update(amount: @order.amount + snatch.amount)
+            item = @line_item.item
+            if params[:type] == "plus" && @line_item.quantity == item.quantity
+                @status = 1
+            elsif params[:type] == "minus" && @line_item.quantity == 1
+                @status = -1
+            else
+                @status = 0
+                num = (params[:type] == "plus") ? 1 : -1
+                @line_item.update(quantity: @line_item.quantity + num)
+                @line_item.update(amount: @line_item.quantity * @line_item.item.price)
+                @order.update(amount: 0)
+                @order.line_items.each do |snatch|
+                    @order.update(amount: @order.amount + snatch.amount)
+                end
             end
         end
     end

@@ -1,7 +1,14 @@
 function changeQty() {
     $('#line_item-quantity-<%= @line_item&.id %>').html("수량 : <%= @line_item.quantity %>개");
-    $('#line_item-amount-<%= @line_item&.id%>').html("수량 : <%= @line_item.  amount %>개");
+    $('#line_item-amount-<%= @line_item&.id%>').html("<%= @line_item.  amount %>원");
     $('.buy-tab__amount').html("<%= @order.amount   %>원");
 }
 
-changeQty();
+if(<%= @status %> == 1) {
+    alert("최대 수량입니다.");
+}else if(<%= @status %> == -1) {
+    alert("최소 수량입니다.")
+}else {
+    changeQty();
+}
+
