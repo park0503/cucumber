@@ -5,6 +5,7 @@
   <br />
   <div class="field">
     <%= f.label :name %>
+    <br>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
   <br />
@@ -16,6 +17,7 @@
   <br />
   <div class="field">
     <%= f.label :birth %>
+    <br>
     <%= f.select :year, 
     options_for_select([['1996','1996'],['1997','1997'],['1998','1998']], params[:year]),
     {} %>년
@@ -33,6 +35,7 @@
   <br />
    <div class="field">
     <%= f.label :address1, "Address" %>
+    <br>
     <%= f.text_field :address1 %>
     <br>
     <%= f.text_field :address2 %>
@@ -40,16 +43,19 @@
   <br />
    <div class="field">
     <%= f.label :phone, "Phone Number"%>
+    <br>
     <%= f.text_field :phone %>
   </div>
   <br>
   <div class="field">
     <%= f.label :avatar, 'Avatar' %>
+    <br>
     <%= f.file_field :avatar %>
   </div>
   <br />
   <div class="field">
     <%= f.label :email %>
+    <br>
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
   <br />
@@ -64,9 +70,10 @@
   <br />
   <div class="field">
     <%= f.label :password_confirmation %>
+    <br>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
