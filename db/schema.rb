@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_122449) do
+ActiveRecord::Schema.define(version: 2021_01_15_073412) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -77,6 +77,19 @@ ActiveRecord::Schema.define(version: 2021_01_13_122449) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.string "title"
+    t.string "image"
+    t.string "content"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_ratings_on_item_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -102,4 +115,6 @@ ActiveRecord::Schema.define(version: 2021_01_13_122449) do
   add_foreign_key "line_items", "items"
   add_foreign_key "line_items", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "ratings", "items"
+  add_foreign_key "ratings", "users"
 end

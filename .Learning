@@ -1,0 +1,1 @@
+activeadmin 쓸 때 만들어지는 scss는 내가 쓰는것보다 우선순위가 높다. app/assets/stylesheets/application.css에서 *= tree 인가 얘를 지워주면 내께 우선순위가 된다. 맞나?
