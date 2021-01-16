@@ -1,0 +1,22 @@
+<% line_item ||= nil %>
+<% if line_item %>
+<div class="line_item">
+    <%= image_tag item.image_url.url, class: "line_item-image" %>
+    <div class="line_item-column">
+        <div class = "line_item-name">
+            <%= item.name %>
+        </div>
+        <div class="line_item-content">
+            <%= item.content %>
+        </div>
+    </div>
+    <div class="line_item-column">
+        <div class="line_item-quantity" id="line_item-quantity-<%=line_item.id%>">
+            수량 : <%= line_item.quantity %>개
+        </div>
+        <div class="line_item-amount" id="line_item-amount-<%=line_item.id%>">
+            <%= item.price * line_item.quantity %>원
+        </div>
+    </div>
+</div>
+<% end %>

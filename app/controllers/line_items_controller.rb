@@ -5,10 +5,10 @@ class LineItemsController < ApplicationController
     end
 
     def create
-        item = Item.find(params[:id])
-        line_item = LineItem.new(quantity: 1, amount: item.price)
+        @item = Item.find(params[:id])
+        line_item = LineItem.new(quantity: 1, amount: @item.price)
         order = Order.find_by(user_id: current_user.id, status: 0)
-        line_item.item_id = item.id
+        line_item.item_id = @item.id
         line_item.order_id = order.id
         line_item.save
         order.update(amount: order.amount + line_item.amount)

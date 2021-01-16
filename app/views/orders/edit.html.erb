@@ -2,7 +2,7 @@
 <div class = "order">
   <% @order.line_items.each do |line_item| %>
   <% item = line_item.item %>
-    <div class = "order__line_item">
+    <div class = "order__line_items">
       <div class="line_item">
         <%= image_tag item.image_url.url, class: "line_item-image" %>
         <div class="line_item-column">

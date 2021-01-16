@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :mypage
+      get :record
     end
   end
   resources :line_items do
