@@ -54,6 +54,13 @@
             장바구니에서 빼기
         <% end %>
     <% end %>
-    
 <% end %>
 </div>
+<div class = "ratings">
+    <% if @item.ratings.present? %>
+    
+    <% else %>
+        등록된 평가가 없습니다.
+    <% end %>
+</div>
+
